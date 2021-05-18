@@ -26,15 +26,22 @@ def stop():
     global player
     player.stop()
 
-play("./clips/vibes.mkv")
+
 @app.route('/')
 def test():
     return "Howdy world"
+
 @app.route('/vibeone')
 def vibe_1():
     play("./clips/vibes.mkv")
     return 'done'
-@app.route('/stop')
-def end():
-    stop()
+
+@app.route('/demon')
+def vibe_3():
+    play("./clips/demon.mp4")
+    return 'done'
+
+@app.route('/eva')
+def vibe_2():
+    play("./clips/eva.mp4")
     return 'done'
