@@ -6,7 +6,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-Instance = vlc.Instance('--fullscreen','--input-repeat=1','--mouse-hide-timeout=0')
+Instance = vlc.Instance('--fullscreen','--input-repeat=999999','--mouse-hide-timeout=0')
 player = Instance.media_player_new()
 
 
@@ -33,7 +33,7 @@ def test():
 
 @app.route('/vibeone')
 def vibe_1():
-    play("./clips/vibes.mkv")
+    play("./clips/vibes.mp4")
     return 'done'
 
 @app.route('/demon')
