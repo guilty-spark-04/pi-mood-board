@@ -13,6 +13,8 @@ player = Instance.media_player_new()
 
 def play(path):
     global player
+    if(player.is_playing()):
+        player.stop()
     Media = Instance.media_new(path)
     player.set_media(Media)
     Media.get_mrl()
