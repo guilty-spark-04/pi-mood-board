@@ -33,7 +33,7 @@ def test():
 
 @app.route('/vibeone')
 def vibe_1():
-    play("./clips/vibes.mp4")
+    play("./clips/bebop.mkv")
     return 'done'
 
 @app.route('/demon')
@@ -45,3 +45,5 @@ def vibe_3():
 def vibe_2():
     play("./clips/eva.mp4")
     return 'done'
+
+app.run(host='0.0.0.0',port=5000)
