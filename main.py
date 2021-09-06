@@ -2,6 +2,7 @@ import vlc
 from time import sleep
 import os
 from flask import Flask
+import pafy
 
 
 app = Flask(__name__)
@@ -18,10 +19,15 @@ def play(path):
     Media.get_mrl()
     player.set_fullscreen(True)
     player.play()
-    sleep(5)
-    while player.is_playing():
-        sleep(1)
-
+def playOnline(url):
+    global player
+    video = pafy.new(url)
+    best = video.getbest()
+    Media = Instance.media_new(best.url)
+    player.set_media(Media)
+    Media.get_mrl()
+    player.set_fullscreen(True)
+    player.play()
 def stop():
     global player
     player.stop()
@@ -46,4 +52,14 @@ def vibe_2():
     play("./clips/eva.mp4")
     return 'done'
 
+@app.route("/jjk")
+def jjk():
+    play("./clips/jjk.mp4")
+    return 'done'
+
+@app.route("/space")
+def space():
+    playOnline("https://www.youtube.com/watch?v=0k23DVv_xsA")
+    return 'done'
+play("/clips/eva.mp4")
 app.run(host='0.0.0.0',port=5000)
