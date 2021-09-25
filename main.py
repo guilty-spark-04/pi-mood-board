@@ -62,4 +62,8 @@ def space():
     playOnline("https://www.youtube.com/watch?v=0k23DVv_xsA")
     return 'done'
 play("./clips/eva.mp4")
+@app.route("/halo")
+def halo():
+    play("./clips/halo.mp4")
+    return 'done'
 app.run(host='0.0.0.0',port=5000)
